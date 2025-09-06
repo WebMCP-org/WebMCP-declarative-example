@@ -6,11 +6,11 @@ This repository explores the feasibility of a declarative HTML-based approach fo
 
 ## Background
 
-This demo was created in response to discussions about whether WebMCP tools could be defined declaratively through HTML attributes rather than JavaScript registration. The idea: existing HTML forms and links could become MCP tools by simply adding attributes.
+This demo was created in response to discussions about whether WebMCP tools could be defined declaratively through HTML attributes in addition to JavaScript registration. The idea: existing HTML forms and links could become MCP tools by simply adding attributes.
 
 ## The Approach
 
-Instead of JavaScript tool registration:
+In addition to JavaScript tool registration:
 ```javascript
 window.mcp.registerTool('add-todo', {...}, async (params) => {...})
 ```
@@ -57,6 +57,8 @@ go run main.go
 ```
 
 Visit http://localhost:8080
+
+with the MCP-B chrome extension installed: https://chromewebstore.google.com/detail/mcp-bextension/daohopfhkdelnpemnhlekblhnikhdhfa
 
 ## Conclusion
 
