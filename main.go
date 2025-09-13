@@ -37,9 +37,7 @@ const pageHTML = `
         .completed { text-decoration: line-through; opacity: 0.6; }
         .user-info { background: #f5f5f5; padding: 10px; margin-bottom: 20px; font-size: 12px; }
     </style>
-    <script src="/polyfill.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/zod@3.22.4/lib/index.umd.js"></script>
-    <script src="/webmcp-translator.js"></script>
+
 </head>
 <body>
     <div class="user-info">Session: {{.UserID}}</div>
@@ -103,14 +101,6 @@ func main() {
     http.HandleFunc("/", handleIndex)
     http.HandleFunc("/todos", handleTodos)
     http.HandleFunc("/todos/", handleTodoAction)
-    http.HandleFunc("/polyfill.js", func(w http.ResponseWriter, r *http.Request) {
-        w.Header().Set("Content-Type", "application/javascript")
-        http.ServeFile(w, r, "polyfill.js")
-    })
-    http.HandleFunc("/webmcp-translator.js", func(w http.ResponseWriter, r *http.Request) {
-        w.Header().Set("Content-Type", "application/javascript")
-        http.ServeFile(w, r, "webmcp-translator.js")
-    })
 
     port := os.Getenv("PORT")
     if port == "" {
